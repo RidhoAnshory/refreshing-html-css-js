@@ -1,57 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <title>Document</title>
-
-    <style>
-        h1{
-            color: blue;
-            background-color: coral;
-        }
-        h1.clicked{
-            color:brown;
-            background-color:white;
-        }
-        h1.node{
-            font-family: monospace;
-        }
-    </style>
+  <title>Common text markups</title>
 </head>
 <body>
-    <h1>Introduction</h1>
-    <div>
-      <h2>Whom this book is for?</h2>
-      <h2>Errata</h2>
-    </div>
-    <h1>Chapter 1</h1>
-    <div>
-      <h2>What you will learn in this chapter</h2>
-      <h2>Summary</h2>
-    </div>
-    <h1>Chapter 2</h1>
-    <div>
-      <h2>Recap</h2>
-      <h2>Conclusion</h2>
-    </div>
-  </body>
-<script>
-  $(document).ready(function () {
-    $('h1').prepend('<span class="node">-</span>');
-    $('h1').click(
-        function () {
-          var node = $(this).children('.node');
-          $(this).next().fadeToggle(500, 'swing',
-              function () {
-                var mark = node.text();
-                mark = mark === '-' ? '+' : '-';
-                node.text(mark);
-              });
-        })
-  });
-</script>
+  <div>
+    <strong>HTML5</strong>
+    is a <dfn>markup language</dfn>
+    for structuring and presenting content for the 
+    World Wide Web (<abbr>WWW</abbr>) 
+    and a core technology of the <em>Internet</em>.
+
+  </div>
+
+  <div>
+    <b>HTML5</b>
+    is a <i>markup language</i>
+    for structuring and presenting content for the 
+    World Wide Web (WWW) 
+    and a core technology of the <i>Internet</i>.
+  </div>
+
+  <div>
+    <h1>Table of Contents</h1>
+  </div>
+  <div>
+    <h2><a href="./paragraf.html">&bullet;Paragraf Styling</a></h2>
+  </div>
+
+  
+  
+</body>
 </html>
