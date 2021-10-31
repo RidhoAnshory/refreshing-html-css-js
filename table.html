@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Using rowspan and colspan</title>
+  <style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+    }
+  
+    table {
+      background-color: aliceblue;
+      border: 4px solid dimgray;
+      border-collapse: collapse;
+    }
+  
+    td, th {
+      padding: 4px 8px;
+      text-align: center;
+      border: 2px solid dimgray;
+    }
+  
+    th {
+      font-weight: normal;
+      background-color: cornflowerblue;
+      color: white;
+    }
+  
+    td {
+      color: dimgray;
+      font-weight: bold;
+    }
+  
+    .origin {
+      background-color: navy;
+      color: lightgoldenrodyellow
+    }
+  </style>
+  
+</head>
+<body>
+  <table border="1">
+    <!-- Row 1 -->
+    <tr>
+      <td>North</td>
+      <td>12%</td>
+      <td>$38.64m</td>
+    </tr>
+    <!-- Row 2 -->
+    <tr><td colspan="3">Top 3</td></tr>
+    <!-- Row 3 -->
+    <tr>
+      <td colspan="2">Chicago</td>
+      <td>$20.09m</td>
+    </tr>
+    <!-- Row 4 -->
+    <tr>
+      <td colspan="2">Cleveland</td>
+      <td>$12.24m</td>
+    </tr>
+    <!-- Row 5 -->
+    <tr>
+      <td colspan="2">Minneapolis</td>
+      <td>$3.53m</td>
+    </tr>
+    <!-- Row 6 -->
+    <tr>
+      <td>East</td>
+      <td>42%</td>
+      <td>$135.24m</td>
+    </tr>
+    <!-- Row 7 -->
+    <tr><td colspan="3">Top 3</td></tr>
+    <!-- Row 8 -->
+    <tr>
+      <td rowspan="3" colspan="2">???</td>
+      <td>$34.52m</td>
+    </tr>
+    <!-- Row 9 -->
+    <tr><td>$23.09m</td></tr>
+    <!-- Row 10 -->
+    <tr><td>$12.64m</td></tr>
+    <!-- Row 11 -->
+    <tr>
+      <td>South</td>
+      <td>27%</td>
+      <td>$86.94m</td>
+    </tr>
+    <!-- Row 12 -->
+    <tr>
+      <td>West</td>
+      <td>19%</td>
+      <td>$61.18m</td>
+    </tr>
+  </table>
+
+  <h2>Table Headers</h2>
+  <table border="1">
+    <tr>
+      <td rowspan="2" colspan="2">XOR</td>
+      <th id="input" colspan="2">Input</th>
+    </tr>
+    <tr>
+      <th headers="input" scope="col">false</th>
+      <th headers="input" scope="col">true</th>
+    </tr>
+    <tr>
+      <th id="output" rowspan="2">Output</th>
+      <th headers="output" scope="row">false</th>
+      <td>false</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <th headers="output" scope="row">true</th>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+  </table>
+</body>
+</html>
