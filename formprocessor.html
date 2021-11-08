@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Form Processor</title>
+  <head>
+    <title>Form Processor</title>
     <style>
       body {
         font-family: Verdana, Arial, sans-serif;
@@ -12,7 +12,8 @@
         border-collapse: collapse;
       }
 
-      td, th {
+      td,
+      th {
         padding: 4px 8px;
         border: 1px dotted dimgray;
       }
@@ -22,45 +23,51 @@
         color: white;
       }
     </style>
-</head>
-<body>
-  <h1>Form Data</h1>
+  </head>
+  <body>
+    <h1>Form Data</h1>
     <table>
-    <thead>
-      <tr><th>Property</th><th>Value</th></tr>
-    </thead>
-    <tbody>
-      <!-- Filled up by JavaScript -->
-    </tbody>
-  </table>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(function () {
-      var params = getFormParameters();
-      for (var parName in params) {
-        var row = $("<tr>")
-          .append($("<td>").html(parName))
-          .append($("<td>").html(params[parName]));
-        $("tbody").append(row);
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Filled up by JavaScript -->
+      </tbody>
+    </table>
+    <br />
+    <a id="back" href="#">Back to the caller</a>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        var params = getFormParameters();
+        for (var parName in params) {
+          var row = $("<tr>")
+            .append($("<td>").html(parName))
+            .append($("<td>").html(params[parName]));
+          $("tbody").append(row);
+        }
+        $("#back").attr("href", getFormParameters()["caller"]);
+      });
+
+      function getFormParameters() {
+        var uri = window.location.search;
+        var result = {};
+        if (uri.indexOf("?") === -1) {
+          return {};
+        }
+        var query = uri.slice(1);
+        var params = query.split("&");
+        var i = 0;
+        while (i < params.length) {
+          var parameter = params[i].split("=");
+          result[parameter[0]] = parameter[1];
+          i++;
+        }
+        return result;
       }
-    });
-    
-    function getFormParameters() {
-      var uri = window.location.search;
-      var result = {};
-      if (uri.indexOf("?") === -1) {
-        return {};
-      }
-      var query = uri.slice(1);
-      var params = query.split("&");
-      var i = 0;
-      while (i < params.length) {
-        var parameter = params[i].split("=");
-        result[parameter[0]] = parameter[1];
-        i++;
-      }
-      return result;
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
